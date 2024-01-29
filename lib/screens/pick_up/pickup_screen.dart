@@ -59,21 +59,7 @@ class _PickupScreenState extends State<PickupScreen> {
                                     children: [
                                       const Text(
                                           "Do you Really want to logout?"),
-                                      GetBuilder<PickupController>(
-                                          builder: (controller) {
-                                        var state =
-                                            controller.pickupState.value;
-
-                                        if (state is GEtLogoutLoadingState) {
-                                          return const LogoutLoading();
-                                        }
-                                        if (state is GetLogoutErrorState) {
-                                          return const LogoutError();
-                                        }
-                                        if (state is GEtLogoutSuccessState) {
-                                          Navigator.of(context).pop();
-                                        }
-                                        return Row(
+                                      Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceAround,
                                           children: [
@@ -91,8 +77,8 @@ class _PickupScreenState extends State<PickupScreen> {
                                               },
                                             )
                                           ],
-                                        );
-                                      }),
+                                        ),
+                                      
                                     ],
                                   ),
                                 ),
