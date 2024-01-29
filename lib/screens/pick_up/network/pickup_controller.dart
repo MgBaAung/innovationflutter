@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:innovation/cache/app_storage.dart';
 import 'package:innovation/routes/route_helper.dart';
 import 'package:innovation/screens/pick_up/model/pickup_model.dart';
 import 'package:innovation/screens/pick_up/network/pickup_repo.dart';
@@ -66,6 +65,7 @@ class PickupController extends GetxController {
     try {
       await repo.lgout(body: {}).then((response) {
         if (response.statusCode == 200 && response.body["success"] == true) {
+          AppStorage().clearPreferencesData();
           Get.offAllNamed(
             RouteHelper.login,
           );

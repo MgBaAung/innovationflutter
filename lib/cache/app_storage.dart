@@ -32,4 +32,8 @@ class AppStorage {
       return '';
     }
   }
+
+  void clearToken(){
+    
+  }
 }
